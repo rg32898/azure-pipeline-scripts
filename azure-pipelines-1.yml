@@ -1,0 +1,8 @@
+- task: PowerShell@2
+  retryCountOnTaskFailure: 2
+  inputs:
+    targetType: 'filePath'
+    filePath: $(System.DefaultWorkingDirectory)/Scripts/health.ps1
+    arguments: > # Use this to avoid newline characters in a  multiline string
+      -uri "https://myapp.azurewebsites.net/health"
+  displayName: 'Health check'
